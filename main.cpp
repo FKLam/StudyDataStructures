@@ -1,8 +1,11 @@
 #include <iostream>
+#include <ctime>
 #include "AMGArray/AMGArray.hpp"
 #include "Stack/ArrayStack.hpp"
 #include "Queue/ArrayQueue.hpp"
 #include "Queue/LoopQueue.hpp"
+
+#define KQUEUETEST_NUMBER 1000
 
 using namespace std;
 
@@ -14,10 +17,20 @@ void testArrayQueue();
 
 void testLoopQueue();
 
+void testArrayQueueNum(int num);
+
+void testLoopQueueNum(int num);
+
 int main(int argc, char* argv[]) {
     // testArrayStack();
     // testArrayQueue();
-    testLoopQueue();
+    // testLoopQueue();
+
+    // testArrayQueueNum(KQUEUETEST_NUMBER);
+    // testLoopQueueNum(KQUEUETEST_NUMBER);
+
+    cout << "测试测试！！！" << endl;
+
     return 0;
 }
 
@@ -86,6 +99,46 @@ void testLoopQueue() {
             cout << queue->toString() << endl;
         }
     }
+    // 释放创建的内存
+    delete queue;
+    queue = NULL;
+}
+
+// 测试数组队列性能
+void testArrayQueueNum(int num) {
+    clock_t startTime, endTime;
+    startTime = clock();    // 计时开始
+    ArrayQueue *queue = new ArrayQueue(10);
+    for ( int i = 0; i < num; i++ ) {
+        // 入队
+        queue->enqueue(i);
+    }
+    for ( int i = 0; i < num; i++ ) {
+        // 出队
+        queue->dequeue();
+    }
+    endTime = clock();  // 结束时间
+    cout << "ArrayQueue: time " << (double)(endTime - startTime) / 1000 << " s" << endl;
+    // 释放创建的内存
+    delete queue;
+    queue = NULL;
+}
+
+// 测试循环队列性能
+void testLoopQueueNum(int num) {
+    clock_t startTime, endTime;
+    startTime = clock();    // 计时开始
+    LoopQueue *queue = new LoopQueue(10);
+    for ( int i = 0; i < num; i++ ) {
+        // 入队
+        queue->enqueue(i);
+    }
+    for ( int i = 0; i < num; i++ ) {
+        // 出队
+        queue->dequeue();
+    }
+    endTime = clock();  // 结束时间
+    cout << "LoopQueue: time " << (double)(endTime - startTime) / 1000 << " s" << endl;
     // 释放创建的内存
     delete queue;
     queue = NULL;
