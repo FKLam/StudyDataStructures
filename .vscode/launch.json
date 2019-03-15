@@ -11,17 +11,13 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/a.out",
-            "args": [
-                "${file}",
-                "-o",
-                "${fileDirname}a.out",
-                "-g",
-            ],
+            "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
-            "MIMode": "lldb"
+            "MIMode": "lldb",
+            "preLaunchTask":"c++"
         }
     ]
 }

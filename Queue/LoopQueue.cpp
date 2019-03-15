@@ -18,6 +18,7 @@ LoopQueue::LoopQueue(int ncapacity) {
 
 // 析构函数
 LoopQueue::~LoopQueue() {
+    cout << "LoopQueue::~LoopQueue() 析构函数" << endl;
     delete[] array;
     array = NULL;
     size = 0;

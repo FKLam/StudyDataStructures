@@ -5,7 +5,8 @@
 #include "Queue/ArrayQueue.hpp"
 #include "Queue/LoopQueue.hpp"
 
-#define KQUEUETEST_NUMBER 1000
+// 测试普通队列/循环队列的数目
+#define KQUEUETEST_NUMBER 10000
 
 using namespace std;
 
@@ -26,10 +27,10 @@ int main(int argc, char* argv[]) {
     // testArrayQueue();
     // testLoopQueue();
 
-    // testArrayQueueNum(KQUEUETEST_NUMBER);
-    // testLoopQueueNum(KQUEUETEST_NUMBER);
+    testArrayQueueNum(KQUEUETEST_NUMBER);
+    testLoopQueueNum(KQUEUETEST_NUMBER);
 
-    cout << "测试测试！！！" << endl;
+    // cout << "测试测试！！！" << endl;
 
     return 0;
 }

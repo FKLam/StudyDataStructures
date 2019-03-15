@@ -9,6 +9,11 @@
             "type": "shell",
             "args": [
                 "main.cpp",
+                "AMGArray/AMGArray.cpp",
+                "Stack/ArrayStack.cpp",
+                "Queue/QueueInterface.cpp",
+                "Queue/ArrayQueue.cpp",
+                "Queue/LoopQueue.cpp",
                 "-std=c++11",
                 "-g"
             ],
