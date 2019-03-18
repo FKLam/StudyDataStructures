@@ -28,6 +28,11 @@ public:
     int get(int index);             // 获取元素
     int getFirst();
     int getLast();
+    void set(int index, int e);
+
+    bool contains(int e);           // 是否包含某个元素
+    int find(int e);                // 查找数组中元素所在的索引，如果不存在元素e，则返回-1
+    void removeElement(int e);       // 从数组中删除元素e
     
     string toString();              // 打印结果
 private:

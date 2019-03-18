@@ -107,6 +107,14 @@ int AMGArray::get(int index) {
     return data[index];
 }
 
+// 更新index位置上的元素
+void AMGArray::set(int index, int e) {
+    if ( index < 0 || index >= size ) {
+        cout << "Index 不合法" << endl;
+    }
+    data[index] = e;
+}
+
 // 获取最后一个元素
 int AMGArray::getLast() {
     return get(size - 1);
@@ -116,6 +124,37 @@ int AMGArray::getLast() {
 int AMGArray::getFirst() {
     return get(0);
 }
+
+// 是否包含某个元素
+bool AMGArray::contains(int e) {
+    for ( int i = 0; i < size; i++ ) {
+        if ( data[i] != e ) {
+            continue;
+        }
+        return true;
+    }
+    return false;
+}
+
+// 查找数组中元素所在的索引，如果不存在元素e，则返回-1
+int AMGArray::find(int e) {
+    for ( int i = 0; i < size; i++ ) {
+        if ( data[i] != e ) {
+            continue;
+        }
+        return i;
+    }
+    return -1;
+}
+
+// 从数组中删除元素e
+void AMGArray::removeElement(int e) {
+    int index = find(e);
+    if ( -1 == index ) {
+        return;
+    }
+    remove(index);
+}       
 
 // 打印数组内元素
 string AMGArray::toString() {
